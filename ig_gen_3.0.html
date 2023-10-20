@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELC Id Generator</title>
+
+
+    <script src="https://globalappsportalnam.sharepoint.com/_layouts/1033/init.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>/ -->
+    <script>
+
+    </script>
+    <style>
+        .input {
+            margin: 1rem;
+        }
+
+        .container {
+            padding-top: 5rem;
+            width: 100%;
+            padding-top: 4rem;
+        }
+
+        .row no-gutters {
+            height: 1300px;
+            overflow: scroll;
+        }
+
+        .col-sm-10 {
+            border-radius: 1rem !important;
+            ;
+            padding: 1rem !important;
+            ;
+
+            box-shadow:
+                -0.4px -0.4px 12.9px rgba(0, 0, 0, 0.067),
+                0.6px 0.6px 30.9px rgba(0, 0, 0, 0.071),
+                4.1px 4.1px 58.2px rgba(0, 0, 0, 0.068),
+                12px 12px 103.9px rgba(0, 0, 0, 0.064),
+                28.7px 28.7px 194.3px rgba(0, 0, 0, 0.063),
+                100px 100px 465px rgba(0, 0, 0, 0.07) !important;
+            width: 100.333333% !important;
+            ;
+
+        }
+
+        .card {
+
+            border-radius: 1rem !important;
+            ;
+            padding: 1rem !important;
+            ;
+
+            box-shadow:
+                -0.4px -0.4px 12.9px rgba(0, 0, 0, 0.067),
+                0.6px 0.6px 30.9px rgba(0, 0, 0, 0.071),
+                4.1px 4.1px 58.2px rgba(0, 0, 0, 0.068),
+                12px 12px 103.9px rgba(0, 0, 0, 0.064),
+                28.7px 28.7px 194.3px rgba(0, 0, 0, 0.063),
+                100px 100px 465px rgba(0, 0, 0, 0.07) !important;
+            width: 100.333333% !important;
+            ;
+
+
+        }
+
+        .separator {
+            border-top: 2px solid #000;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+
+        function getCmp_id() {
+            //    document.getElementById("toast").style.display = "none";
+            var label = document.getElementById("labelcmp").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labelcmp").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labelcmp").focus();
+                return false;
+            }
+            var id_components1 = id_components[1] + "_" + id_components[3] + "_" + id_components[4] + "_" + id_components[2] + "_"
+
+            var id = "";
+            for (var i = 5; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId1").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+
+            document.getElementById("toast").style.display = "block";
+            // document.getElementById("toast").style.display = "none";
+        }
+
+        function getWkf_id() {
+
+            var label = document.getElementById("labelwkf").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labelwkf").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            console.log(id_components.length);
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labelwkf").focus();
+                return false;
+            }
+            var id_components1 = id_components[1] + "_" + id_components[4] + "_" + id_components[5] + "_" + id_components[7] + "_" + id_components[2] + "_" + id_components[3] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId2").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+            document.getElementById("toast").style.display = "block";
+
+        }
+
+        function getDel_id() {
+
+            var label = document.getElementById("labeldel").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labeldel").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labeldel").focus();
+                return false;
+            }
+            var id_components1 = id_components[4] + "_" + id_components[6] + "_" + id_components[1] + "_" + id_components[2] + "_" + id_components[3] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId3").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+            document.getElementById("toast").style.display = "block";
+        }
+
+        function getLp_Label() {
+
+            var label = document.getElementById("lpWkfLabel").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("lpWkfLabel").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("lpWkfLabel").focus();
+                return false;
+            }
+            var id_components1 = id_components[4] + "_" + id_components[5] + "_" + id_components[7] + "_" + id_components[2] + "_" + id_components[3] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = 'LP_' + id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId4").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+            document.getElementById("toast").style.display = "block";
+        }
+
+        function getCcl_Label() {
+            var e = document.getElementById("language1");
+            var value = e.value;
+            var language = e.options[e.selectedIndex].text;
+            var label = document.getElementById("clLabel").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("clLabel").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("clLabel").focus();
+                return false;
+            }
+            var id_components1 = id_components[0] + "_" + id_components[7] + "_" + id_components[2] + "_" + id_components[3] + "_" + id_components[4] + "_" + language + "_" + id_components[5] + "_" + id_components[6] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId5").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+            document.getElementById("toast").style.display = "block";
+        }
+
+        function getDm_Label() {
+            var e = document.getElementById("language");
+            var value = e.value;
+            var language = e.options[e.selectedIndex].text;
+            var label = document.getElementById("dmLabel").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("dmLabel").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("dmLabel").focus();
+                return false;
+            }
+            var id_components1 = id_components[0] + "_" + id_components[7] + "_" + id_components[2] + "_" + id_components[3] + "_" + id_components[4] + "_" + language + "_" + id_components[5] + "_" + id_components[6] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId6").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+            navigator.clipboard.writeText(id);
+            document.getElementById("toast").style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand mx-auto" href="#">
+            <img src="https://assets-eu-01.kc-usercontent.com/27bd3334-62dd-01a3-d049-720ae980f906/3455dbac-b941-4c9b-8648-1035d5349541/Merkle-new.png"
+                width="300" height="100" class="d-inline-block align-center" alt="" style="
+    margin-top: -60px;
+">
+            <h1> ELC ID Generator</h1>
+        </a>
+    </nav>
+    <div class="container">
+
+
+        <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Auto Generator</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Manual
+                    Generator</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Sharepoint
+                    Generator</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="container">
+                    <h1>Auto ID Generator</h1>
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="link" class="form-label">Enter Wrike Ticket Link:</label>
+
+                            <input type="text" class="form-control" id="link" name="link" required>
+                            <div class="col-md-6">
+                                <button type="button" onclick="fetchData()" class="btn btn-primary"
+                                    style="margin-top: 1rem;margin-bottom: 1rem;">Fetch
+                                    Data </button>
+                                <div class="spinner-border text-primary" id="spinner" style="display: none;"
+                                    role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="row" id="outputids" style="display: none;">
+                        <div class="col-md-12">
+                            <h2>Generated IDs:</h2>
+                            <div id="matchingValues" class="card" contenteditable="false">
+                              
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function fetchData() {
+                            // Show the spinner
+                            document.getElementById("spinner").style.display = "block";
+
+                            // Fetch the data
+                            // ...
+                            const linkInput = document.getElementById("link");
+
+                            const string = linkInput.value;
+
+                            // Extract the folder ID from the string.
+                            const folderId = string.split("/")[4];
+
+                            // Convert the folder ID to a number.
+                            const folderIdNumber = folderId;
+
+                            // Use the folder ID number in JavaScript.
+                            console.log(folderIdNumber); // 1213110156
+                            const permalink = folderIdNumber;
+                            const headers = {
+                                'Authorization': 'Bearer eyJ0dCI6InAiLCJhbGciOiJIUzI1NiIsInR2IjoiMSJ9.eyJkIjoie1wiYVwiOjQ5NDg2NDQsXCJpXCI6ODgyOTI3MixcImNcIjo0NjcxNTk3LFwidVwiOjE2NDA0Nzc1LFwiclwiOlwiVVNcIixcInNcIjpbXCJXXCIsXCJGXCIsXCJJXCIsXCJVXCIsXCJLXCIsXCJDXCIsXCJEXCIsXCJNXCIsXCJBXCIsXCJMXCIsXCJQXCJdLFwielwiOltdLFwidFwiOjB9IiwiaWF0IjoxNjk0NzYwOTY5fQ.dJ4ngTFZ-JY5K6HFFuTsYCnksxBnIDRFFlJvxa5ZLdU'
+                            };
+
+
+                            const api_url = `https://www.wrike.com/api/v4/folders?permalink=https://www.wrike.com/open.htm?id=${permalink}&fields=["childIds","customFields"]`;
+
+
+                            fetch(api_url, { headers })
+                                .then(response => response.json())
+                                .then(data => {
+
+                                    const searchSubstrings = ["_CMP_"];
+                                    const matchingValues = [];
+
+
+                                    for (const field of data.data[0].customFields) {
+                                        const field_value = field.value;
+                                        if (searchSubstrings.some(substring => field_value.includes(substring))) {
+                                            matchingValues.push(field_value);
+                                        }
+                                    }
+
+
+                                    const matchingValuesList = document.getElementById("matchingValues");
+                                    matchingValuesList.innerHTML = ""; // Clear previous results
+
+
+                                    matchingValues.forEach(value => {
+                                        const valprint = value;
+                                        const valueParts = value.split("_");
+                                        const asset_type = valueParts[1];
+                                        const affiliate = valueParts[3];
+                                        const brand = valueParts[4];
+                                        const type = valueParts[2];
+
+                                        const des = valueParts.slice(5).join('_');
+                                        const campaignID = `${asset_type}_${affiliate}_${brand}_${type}_${des}\n`;
+                                        const campaignName = document.createElement("output");
+                                        campaignName.value = `Campaign Title :`;
+                                        campaignName.type = "text";
+                                        campaignName.className = "input-group-text"
+                                        const campaignLabel = document.createElement("output");
+                                        campaignLabel.value = `Campaign Label :`;
+                                        campaignLabel.type = "text";
+                                        campaignLabel.className = "input-group-text"
+                                        const campaignNameInput = document.createElement("output");
+                                        campaignNameInput.type = "text";
+                                        campaignNameInput.className = "form-control"
+                                        campaignNameInput.value = `${valprint}`;
+                                        const campaignIDlabel = document.createElement("output");
+                                        campaignIDlabel.type = "text";
+                                        campaignIDlabel.className = "input-group-text"
+                                        campaignIDlabel.value = `Campaign ID : `;
+                                        const campaignIdInput = document.createElement("output");
+                                        campaignIdInput.type = "text";
+                                        campaignIdInput.className = "form-control"
+                                        campaignIdInput.value = ` ${campaignID}`;
+
+                                        const campaignTitle = document.createElement("output");
+                                        campaignTitle.type = "text";
+                                        campaignTitle.className = "form-control"
+                                        campaignTitle.contentEditable = "false"
+                                        title = data.data[0].title
+                                        campaignTitle.value = `${title}`;
+
+                                        const campaignDate = document.createElement("output");
+                                        campaignDate.type = "text";
+                                        campaignDate.className = "form-control"
+                                        dueDate = data.data[0].project.endDate
+                                        campaignDate.value = `Campaign Due Date : ${dueDate}`;
+
+                                        const listItem0 = document.createElement("row");
+                                        listItem0.style.padding = "1rem";
+                                        listItem0.className = "input-group"
+                                        listItem0.appendChild(campaignName);
+                                        listItem0.appendChild(campaignTitle);
+                                        listItem0.appendChild(campaignDate);
+                                        matchingValuesList.appendChild(listItem0);
+
+                                        const listItem = document.createElement("row");
+                                        listItem.style.padding = "1rem";
+                                        listItem.className = "input-group"
+                                        listItem.appendChild(campaignLabel);
+                                        listItem.appendChild(campaignNameInput);
+
+                                        matchingValuesList.appendChild(listItem);
+
+
+                                        const listItem2 = document.createElement("row");
+                                        listItem2.style.padding = "1rem";
+                                        listItem2.className = "input-group"
+                                        listItem2.appendChild(campaignIDlabel);
+                                        listItem2.appendChild(campaignIdInput);
+                                        matchingValuesList.appendChild(listItem2);
+                                        const separator = document.createElement("hr");
+                                        separator.classList.add("separator");
+                                        matchingValuesList.appendChild(separator);
+
+
+
+
+                                        // matchingValuesList.appendChild(listItem);
+
+
+
+
+                                        const child_ids = data.data[0].childIds;
+
+
+                                        child_ids.forEach(child_id => {
+                                            const api_url_wfl = `https://www.wrike.com/api/v4/folders/${child_id}`;
+                                            fetch(api_url_wfl, { headers })
+                                                .then(response => response.json())
+                                                .then(data_child => {
+                                                    // Define search substrings for child data
+                                                    const searchSubstringsWfl = ["_WFL_"];
+                                                    const matchingValuesWfl = [];
+
+
+                                                    for (const field of data_child.data[0].customFields) {
+                                                        const field_value = field.value;
+                                                        if (searchSubstringsWfl.some(substring => field_value.includes(substring))) {
+                                                            matchingValuesWfl.push(field_value);
+                                                        }
+                                                    }
+
+
+                                                    matchingValuesWfl.forEach(matchingValueWfl => {
+                                                        const values = matchingValueWfl.split(",");
+                                                        values.forEach(value => {
+                                                            const valuePartsWfl = value.split("_");
+                                                            if (value === values[values.length - 1]) {
+                                                                const valprint = value;
+                                                                const asset_type = valuePartsWfl[1];
+                                                                const affiliate = valuePartsWfl[4];
+                                                                const brand = valuePartsWfl[5];
+                                                                const delivery = valuePartsWfl[7];
+                                                                const type = valuePartsWfl[2];
+                                                                const touch = valuePartsWfl[3];
+
+                                                                const des = valuePartsWfl.slice(8).join('_');
+
+                                                                const wflid = `${asset_type}_${affiliate}_${brand}_${delivery}_${type}_${touch}_${des}`;
+                                                                //.replace(/_V1\.0$/, "");
+
+                                                                const workflowName = document.createElement("output");
+                                                                workflowName.type = "text";
+                                                                workflowName.className = "input-group-text"
+                                                                workflowName.value = `Workflow Label : `;
+
+                                                                const workflowId = document.createElement("output");
+                                                                workflowId.type = "text";
+                                                                workflowId.className = "form-control"
+                                                                workflowId.value = `${valprint}`;
+
+                                                                const workflowIdlabel = document.createElement("output");
+                                                                workflowIdlabel.type = "text";
+                                                                workflowIdlabel.className = "input-group-text"
+                                                                workflowIdlabel.value = `Workflow ID :`;
+
+                                                                const workflowIdlabelId = document.createElement("output");
+                                                                workflowIdlabelId.type = "text";
+                                                                workflowIdlabelId.className = "form-control"
+                                                                workflowIdlabelId.value = ` ${wflid}`;
+
+                                                                const listItem = document.createElement("row");
+                                                                listItem.style.padding = "1rem";
+                                                                listItem.className = "input-group"
+                                                                listItem.appendChild(workflowName);
+                                                                listItem.appendChild(workflowId);
+
+                                                                const listItem1 = document.createElement("row");
+                                                                listItem1.style.padding = "1rem";
+                                                                listItem1.className = "input-group"
+                                                                listItem1.appendChild(workflowIdlabel);
+                                                                listItem1.appendChild(workflowIdlabelId);
+
+                                                                matchingValuesList.appendChild(listItem);
+                                                                matchingValuesList.appendChild(listItem1);
+                                                                const separator = document.createElement("hr");
+                                                                separator.classList.add("separator");
+                                                                matchingValuesList.appendChild(separator);
+
+
+
+
+
+                                                                // const listItemWfl = document.createElement("output");
+                                                                // listItemWfl.textContent = `\tWorkflow Name: ${valprint} \n\tWorkflow ID: ${wflid}\n `;
+                                                                // matchingValuesList.appendChild(listItemWfl);
+                                                            } else {
+                                                                const valprint = value;
+                                                                const affiliate = valuePartsWfl[4];
+                                                                const brand = valuePartsWfl[6];
+                                                                const delivery = valuePartsWfl[1];
+                                                                const type = valuePartsWfl[2];
+                                                                const touch = valuePartsWfl[3];
+                                                                //const des = valuePartsWfl[valuePartsWfl.length - 1];
+                                                                const des = valuePartsWfl.slice(8).join('_');
+                                                                const delid = `${affiliate}_${brand}_${delivery}_${type}_${touch}_${des}\n`;
+
+                                                                const deliveryLabel = document.createElement("output");
+                                                                deliveryLabel.type = "text";
+                                                                deliveryLabel.className = "input-group-text"
+                                                                // campaignNameInput.style.paddingBlock="1rem"
+                                                                deliveryLabel.value = `Delivery Name :`;
+
+                                                                const deliveryLabelVal = document.createElement("output");
+                                                                deliveryLabelVal.type = "text";
+                                                                deliveryLabelVal.className = "form-control"
+                                                                // campaignNameInput.style.paddingBlock="1rem"
+                                                                deliveryLabelVal.value = `${valprint}`;
+
+                                                                const deliveryIdLabel = document.createElement("output");
+                                                                deliveryIdLabel.type = "text";
+                                                                deliveryIdLabel.className = "input-group-text"
+                                                                deliveryIdLabel.value = `Delivery ID : `;
+
+                                                                const deliveryIdVal = document.createElement("output");
+                                                                deliveryIdVal.type = "text";
+                                                                deliveryIdVal.className = "form-control"
+
+                                                                deliveryIdVal.value = `${delid}`;
+
+                                                                const listItem1 = document.createElement("row");
+                                                                listItem1.style.padding = "1rem";
+                                                                listItem1.className = "input-group"
+                                                                listItem1.appendChild(deliveryLabel);
+                                                                listItem1.appendChild(deliveryLabelVal);
+                                                                matchingValuesList.appendChild(listItem1);
+
+
+                                                                const listItem = document.createElement("row");
+                                                                listItem.style.padding = "1rem";
+                                                                listItem.className = "input-group"
+                                                                listItem.appendChild(deliveryIdLabel);
+                                                                listItem.appendChild(deliveryIdVal);
+
+
+                                                                matchingValuesList.appendChild(listItem);
+
+
+                                                                // const listItemDel = document.createElement("li");
+                                                                // listItemDel.textContent = `\tDelivery Name: ${valprint} \n\tDelivery ID: ${delid}\n `;
+                                                                // matchingValuesList.appendChild(listItemDel);
+
+                                                            }
+                                                        });
+                                                    });
+                                                })
+                                                .catch(error => {
+                                                    console.error(`Error fetching child data: ${error}`);
+                                                });
+                                        });
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error(`Error fetching data: ${error}`);
+                                });
+
+                            // Hide the spinner and display the output
+                            setTimeout(function () {
+                                document.getElementById("spinner").style.display = "none";
+                                document.getElementById("outputids").style.display = "block";
+                                document.getElementById("spinner").style.display = "none";
+                            }, 3500);
+                        }
+
+
+
+                    </script>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                <div class="container">
+                    <div class="contact__wrapper shadow-lg mt-n9">
+                        <div class="row no-gutters">
+                            <div style="background-image: -webkit-linear-gradient(45deg, #3d3d3d 0%, #ff0000 100%)"
+                                class="col-lg-4 contact-info__wrapper gradient-brand-color p-4 order-lg-2">
+                                <h3 class="color--white mb-5">ELC ID Generator</h3>
+                                <div class="toast fade show" id="toast" role="alert" aria-live="assertive"
+                                    style="display: none;" aria-atomic="true">
+
+                                    <div class="toast-body">
+                                        Copied To Clipboard
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                            aria-label="Close" style="float: right;"></button>
+                                    </div>
+                                </div>
+                                <ul class="contact-info__list list-style--none position-relative z-index-101">
+                                    <li class="mb-4 pl-4">
+                                        <span class="position-absolute"><i class="fas fa-envelope"></i></span> 1. Copy
+                                        and
+                                        paste the
+                                        label from the corresponding Wrike request.
+                                    </li>
+                                    <li class="mb-4 pl-4">
+                                        <span class="position-absolute"><i class="fas fa-phone"></i></span>
+                                        2. Click on convert
+                                        against the respective label for Campiagn or Workflow or Delivery.
+                                    </li>
+                                    <li class="mb-4 pl-4">
+                                        <span class="position-absolute"><i class="fas fa-map-marker-alt"></i></span> 3.
+                                        Check for
+                                        the versioning of the respective campaign, workflow and delivery ID.
+                                        <br>
+                                        <br>Note:
+                                        <br>Add the language preference(TC/SC/EN) at the end of delivery ID
+                                        and V1.0 wherever
+                                        applicable.
+                                        <br>
+
+
+
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+                            <div class="col-lg-8 contact-form__wrapper p-5 order-lg-1">
+
+                                <div class="coloumn">
+                                    <div class="col-sm-10 mb-3">
+                                        <div class="form-group">
+                                            <label class="required-field" for="labelcmp">Campaign
+                                                Label</label>
+                                            <input type="text" class="form-control" id="labelcmp" name="labelcmp"
+                                                placeholder="Wrike Campaign Label">
+                                            <div class="col-sm-12 mb-3">
+                                                <button type="submit" id="submit" class="btn btn-primary"
+                                                    onclick="getCmp_id()" style="
+                                            margin-top: 10px;
+                                            border-radius: 5rem;
+                                        " ">Convert</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class=" form-group">
+                                                    <label for="cmpId">Campaign ID</label>
+                                                    <output type="search" class="form-control" id="convertedId1"
+                                                        name="convertedId1" placeholder="ID" style="
+                                                height: 70px; ">
+
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                        <div class="col-sm-10 mb-3">
+                                            <div class="form-group">
+                                                <label class="required-field" for="labelcmp">Workflow
+                                                    Label</label>
+                                                <input type="text" class="form-control" id="labelwkf" name="labelcmp"
+                                                    placeholder="Wrike Workflow Label">
+                                                <div class="col-sm-12 mb-3">
+                                                    <button type="submit" id="submit" class="btn btn-primary"
+                                                        onclick="getWkf_id()" style="
+                                            margin-top: 10px;
+                                            border-radius: 5rem;
+                                        " ">Convert</button>
+                                        </div>
+                                    </div>
+        
+                                    <div class=" form-group">
+                                                        <label for="wkfId">Workflow ID</label>
+                                                        <output type="search" class="form-control" id="convertedId2"
+                                                            name="convertedId3" placeholder="Workflow ID" style="
+                                                height: 70px;">
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="col-sm-10 mb-3">
+                                                <div class="form-group">
+                                                    <label class="required-field" for="labelcmp">Delivery
+                                                        Label</label>
+                                                    <input type="text" class="form-control" id="labeldel"
+                                                        name="labeldel" placeholder="Wrike Delivery Label">
+
+                                                    <div class="col-sm-12 mb-3">
+                                                        <button type="submit" id="submit" class="btn btn-primary"
+                                                            onclick="getDel_id()" style="
+                                            margin-top: 10px;
+                                            border-radius: 5rem;
+                                        " ">Convert</button>
+                                            </div>
+                                    </div>
+        
+                                    <div class=" form-group">
+                                                            <label for="delId">Delivery ID</label>
+                                                            <output type="search" class="form-control" id="convertedId3"
+                                                                name="convertedId3" placeholder="ID" style="
+                                                height: 70px;">
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link " id="pills-lp-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-lp"
+                                                            type="button" role="tab" aria-controls="pills-home"
+                                                            aria-selected="true">Landing page Label</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="pills-ccl-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-ccl"
+                                                            type="button" role="tab" aria-controls="pills-profile"
+                                                            aria-selected="false">Call list</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="pills-dm-tab" data-bs-toggle="pill"
+                                                            data-bs-target="#pills-dm" type="button" role="tab"
+                                                            aria-controls="pills-contact" aria-selected="false">Mailer
+                                                            list</button>
+                                                    </li>
+
+                                                </ul>
+                                                <div class="tab-content" id="pills-tabContent">
+                                                    <div class="tab-pane fade " id="pills-lp" role="tabpanel"
+                                                        aria-labelledby="pills-lp-tab" tabindex="0">
+                                                        <div class="col-sm-10 mb-3">
+                                                            <div class="form-group">
+                                                                <label class="required-field" for="labelcmp">Workflow
+                                                                    Label for
+                                                                    Landing
+                                                                    page</label>
+                                                                <input type="text" class="form-control" id="lpWkfLabel"
+                                                                    name="lpWkfLabel"
+                                                                    placeholder="Wrike workflow Label">
+
+                                                                <div class="col-sm-12 mb-3">
+                                                                    <button type="submit" id="submit"
+                                                                        class="btn btn-primary" onclick="getLp_Label()"
+                                                                        style="
+                                                            margin-top: 10px;
+                                                            border-radius: 5rem;
+                                                        " ">Convert</button>
+                                                            </div>
+                                                            
+                                            <div class=" form-group">
+                                                                        <label for="lplabel">Landing Page
+                                                                            Label</label>
+                                                                        <output type="search" class="form-control"
+                                                                            id="convertedId4" name="convertedId4"
+                                                                            placeholder="ID" style="
+                                            height: 70px;">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="pills-ccl" role="tabpanel"
+                                                        aria-labelledby="pills-ccl-tab" tabindex="0">
+                                                        <div class="col-sm-10 mb-3">
+                                                            <div class="form-group">
+                                                                <label class="required-field" for="labelcmp">Workflow
+                                                                    Label for
+                                                                    Call
+                                                                    list</label>
+                                                                <input type="text" class="form-control" id="clLabel"
+                                                                    name="clLabel" placeholder="Wrike workflow Label">
+                                                                <label for="language">language:</label>
+                                                                <div class="col-sm-12 mb-3">
+                                                                    <select class="form-control" name="Language1"
+                                                                        id="language1">
+                                                                        <option value="TC">TC</option>
+                                                                        <option value="SC">SC</option>
+                                                                        <option value="EN">EN</option>
+
+                                                                    </select>
+                                                                    <button type="submit" id="submit"
+                                                                        class="btn btn-primary" onclick="getCcl_Label()"
+                                                                        style="
+                                                                margin-top: 10px;
+                                                                border-radius: 5rem;
+                                                            " ">Convert</button>
+                                                                </div>
+                                                        </div>
+                            
+                                                        <div class=" form-group">
+                                                                        <label for="cclLabel">Call List
+                                                                            Label</label>
+                                                                        <output type="search" class="form-control"
+                                                                            id="convertedId5" name="convertedId5"
+                                                                            placeholder="ID" style="
+                                                                    height: 70px;">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="pills-dm" role="tabpanel"
+                                                            aria-labelledby="pills-dm-tab" tabindex="0">
+                                                            <div class="col-sm-10 mb-3">
+                                                                <div class="form-group">
+                                                                    <label class="required-field"
+                                                                        for="labelcmp">Workflow Label
+                                                                        for
+                                                                        Mailer list</label>
+                                                                    <input type="text" class="form-control" id="dmLabel"
+                                                                        name="dmLabel"
+                                                                        placeholder="Wrike workflow Label">
+
+                                                                    <div class="col-sm-12 mb-3">
+                                                                        <label for="cars">language:</label>
+                                                                        <select type="radio" class="form-control"
+                                                                            name="Language" id="language">
+                                                                            <option value="TC">TC</option>
+                                                                            <option value="SC">SC</option>
+                                                                            <option value="EN">EN</option>
+
+                                                                        </select>
+                                                                        <button type="submit" id="submit"
+                                                                            class="btn btn-primary"
+                                                                            onclick="getDm_Label()" style="
+                                                                    margin-top: 10px;
+                                                                    border-radius: 5rem;
+                                                                " ">Convert</button>
+                                                                    </div>
+                                                            </div>
+                                
+                                                            <div class=" form-group">
+                                                                            <label for="dmLabel">Mailer list
+                                                                                Label</label>
+                                                                            <output type="search" class="form-control"
+                                                                                id="convertedId6" name="convertedId6"
+                                                                                placeholder="ID" style="
+                                                                        height: 70px;">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                                        <!-- End Contact Form Wrapper -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                            aria-labelledby="pills-contact-tab">
+                            <button onclick="Sharepoint()">Get Campaign Name</button>
+                        </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
