@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ELC ID Generator</title>
+    <style>
+        body {
+            background: linear-gradient(-45deg, #ffffff, #333333, #ff0000);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        .gradient-brand-color {
+            background-image: -webkit-linear-gradient(0deg, #376be6 0%, #6470ef 100%);
+            background-image: -ms-linear-gradient(0deg, #376be6 0%, #6470ef 100%);
+            color: #fff;
+        }
+
+        .contact-info__wrapper {
+            overflow: hidden;
+            border-radius: .625rem .625rem 0 0
+        }
+
+        @media (min-width: 1024px) {
+            .contact-info__wrapper {
+                border-radius: 0 .625rem .625rem 0;
+                padding: 5rem !important
+            }
+        }
+
+        .contact-info__list span.position-absolute {
+            left: 0
+        }
+
+        .z-index-101 {
+            z-index: 101;
+        }
+
+        .list-style--none {
+            list-style: none;
+        }
+
+        .contact__wrapper {
+            background-color: #fff;
+            border-radius: 0 0 .625rem .625rem
+        }
+
+        @media (min-width: 1024px) {
+            .contact__wrapper {
+                border-radius: .625rem 0 .625rem .625rem
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .contact-form__wrapper {
+                padding: 5rem !important
+            }
+        }
+
+        .shadow-lg {
+            box-shadow: 0 1rem 3rem rgba(132, 138, 163, 0.1) !important;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+    </style>
+    <script>
+        // function getCmp_id() {
+        //     var label = document.getElementById("labelcmp").value;
+        //     var id_components = label.split("_");
+        //     var id = "";
+        //     var id = id_components[1] + "_" + id_components[3] + "_" + id_components[4] + "_" + id_components[2] + "_" + id_components[5] + "_" + id_components[6] + "_" + id_components[7] + "_" + id_components[8] + "_" + id_components[9] + "_" + id_components[10];
+        //     id = id.slice(0,); // Remove the trailing underscore
+        //     document.getElementById("convertedId1").innerHTML = id;
+        // }
+        function getCmp_id() {
+
+            var label = document.getElementById("labelcmp").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labelcmp").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labelcmp").focus();
+                return false;
+            }
+            var id_components1 = id_components[1] + "_" + id_components[3] + "_" + id_components[4] + "_" + id_components[2] + "_"
+
+            var id = "";
+            for (var i = 5; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId1").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+
+        }
+
+        function getWkf_id() {
+
+            var label = document.getElementById("labelwkf").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labelwkf").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            console.log(id_components.length);
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labelwkf").focus();
+                return false;
+            }
+            var id_components1 = id_components[1] + "_" + id_components[4] + "_" + id_components[5] + "_" + id_components[7] + "_" + id_components[2] + "_" + id_components[3] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId2").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+        }
+
+
+        function getDel_id() {
+
+            var label = document.getElementById("labeldel").value;
+            if (label == "" || label == null || label == undefined) {
+                alert('Enter the right label!');
+                document.getElementById("labeldel").focus();
+                return false;
+            }
+            const id_components = label.split("_");
+            if (id_components.length <= 1) {
+                alert('Enter the right label!');
+                document.getElementById("labeldel").focus();
+                return false;
+            }
+            var id_components1 = id_components[4] + "_" + id_components[6] + "_" + id_components[1] + "_" + id_components[2] + "_" + id_components[3] + "_";
+
+            var id = "";
+            for (var i = 8; i < id_components.length; i++) {
+                id += id_components[i] + "_";
+            }
+            id = id.slice(0, -1);
+            id = id_components1 + id
+            if (id.length < 64) {
+                document.getElementById("convertedId3").innerHTML = id;
+            } else {
+                alert("The number of characters exceeded(" + id.length + "/64)")
+            }
+
+        }
+
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:a8b37c27258c422e99a84a06d6491f40 msdt:dt="string">Global|7a0f06d1-cbea-4536-ad47-cefe758cbe8f</mso:a8b37c27258c422e99a84a06d6491f40>
+<mso:TaxCatchAll msdt:dt="string">2;#Global;#1;#Global</mso:TaxCatchAll>
+<mso:c403d80a14b84d1abc4b40d1892fced3 msdt:dt="string">Global|cf039cbc-9f82-4a13-90c4-6672be3eb273</mso:c403d80a14b84d1abc4b40d1892fced3>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+    <div class="container" style="width: 100%;padding-top: 4rem;">
+        <div class="contact__wrapper shadow-lg mt-n9">
+            <div class="row no-gutters">
+                <div style="background-image: -webkit-linear-gradient(45deg, #3d3d3d 0%, #ff0000 100%)" class="col-lg-4 contact-info__wrapper gradient-brand-color p-4 order-lg-2">
+                    <h3 class="color--white mb-5">ELC ID Generator</h3>
+
+                    <ul class="contact-info__list list-style--none position-relative z-index-101">
+                        <li class="mb-4 pl-4">
+                            <span class="position-absolute"><i class="fas fa-envelope"></i></span> 1. Copy and paste the label from the corresponding Wrike request.
+                        </li>
+                        <li class="mb-4 pl-4">
+                            <span class="position-absolute"><i class="fas fa-phone"></i></span> 2. Click on convert against the respective label for Campiagn or Workflow or Delivery.
+                        </li>
+                        <li class="mb-4 pl-4">
+                            <span class="position-absolute"><i class="fas fa-map-marker-alt"></i></span> 3. Check for the versioning of the respective campaign, workflow and delivery ID.
+                            <br>
+                            <br>Note:
+                            <br>Add the language preference(TC/SC/EN) at the end of delivery ID and V1.0 wherever applicable.
+                            <br>
+
+
+
+                        </li>
+                    </ul>
+
+
+                </div>
+
+                <div class="col-lg-8 contact-form__wrapper p-5 order-lg-1">
+
+
+                    <div class="coloumn">
+                        <div class="col-sm-10 mb-3" style="
+                            border-radius: 1rem;
+                            padding: 1rem;
+                            border: 1px solid black;
+                                                        width: 100.333333%;
+
+                        ">
+                            <div class="form-group">
+                                <label class="required-field" for="labelcmp">Campaign Label</label>
+                                <input type="text" class="form-control" id="labelcmp" name="labelcmp" placeholder="Wrike Campaign Label">
+                                <div class="col-sm-12 mb-3">
+                                    <button type="submit" id="submit" class="btn btn-primary" onclick="getCmp_id()" style="
+                                    margin-top: 10px;
+                                    border-radius: 5rem;
+                                " ">Convert</button>
+                                </div>
+                            </div>
+
+                            <div class=" form-group">
+                                        <label for="cmpId">Campaign ID</label>
+                                        <output type="search" class="form-control" id="convertedId1" name="convertedId1" placeholder="ID" style="
+                                        height: 70px; ">
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="col-sm-10 mb-3" style="
+                            border-radius: 1rem;
+                            padding: 1rem;
+                            border: 1px solid black;
+                            width: 100.333333%;
+
+                        ">
+                                <div class="form-group">
+                                    <label class="required-field" for="labelcmp">Workflow Label</label>
+                                    <input type="text" class="form-control" id="labelwkf" name="labelcmp" placeholder="Wrike Workflow Label">
+                                    <div class="col-sm-12 mb-3">
+                                        <button type="submit" id="submit" class="btn btn-primary" onclick="getWkf_id()" style="
+                                    margin-top: 10px;
+                                    border-radius: 5rem;
+                                " ">Convert</button>
+                                </div>
+                            </div>
+
+                            <div class=" form-group">
+                                            <label for="cmpId">Workflow ID</label>
+                                            <output type="search" class="form-control" id="convertedId2" name="convertedId3" placeholder="Workflow ID" style="
+                                        height: 70px;">
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-sm-10 mb-3" style="
+                            border-radius: 1rem;
+                            padding: 1rem;
+                            border: 1px solid black;
+                            width: 100.333333%;
+
+                        ">
+                                    <div class="form-group">
+                                        <label class="required-field" for="labelcmp">Delivery Label</label>
+                                        <input type="text" class="form-control" id="labeldel" name="labeldel" placeholder="Wrike Delivery Label">
+
+                                        <div class="col-sm-12 mb-3">
+                                            <button type="submit" id="submit" class="btn btn-primary" onclick="getDel_id()" style="
+                                    margin-top: 10px;
+                                    border-radius: 5rem;
+                                " ">Convert</button>
+                                    </div>
+                            </div>
+
+                            <div class=" form-group">
+                                                <label for="cmpId">Delivery ID</label>
+                                                <output type="search" class="form-control" id="convertedId3" name="convertedId3" placeholder="ID" style="
+                                        height: 70px;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- End Contact Form Wrapper -->
+
+                            </div>
+                        </div>
+                    </div>
+
+</body>
+
+</html>
